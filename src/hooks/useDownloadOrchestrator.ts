@@ -97,7 +97,7 @@ export function useDownloadOrchestrator(onHistoryChange: () => void) {
         }
 
         while (buffer.current.length >= partThreshold) {
-          const records = buffer.current.splice(0, PART_THRESHOLD);
+          const records = buffer.current.splice(0, partThreshold);
           const blob = generateCsvBlob(records);
           completed = [...completed, { partNumber: part, blob, recordCount: records.length }];
           part++;

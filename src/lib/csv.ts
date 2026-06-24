@@ -34,7 +34,7 @@ function recordToRow(r: PropertyRecord): string {
 
 export function generateCsvBlob(records: PropertyRecord[]): Blob {
   const header = HEADERS.join(',') + '\r\n';
-  const rows = records.map(recordToRow).join('\r\n');
+  const rows = records.map(recordToRow).join('\r\n') + '\r\n';
   return new Blob([header + rows], { type: 'text/csv' });
 }
 

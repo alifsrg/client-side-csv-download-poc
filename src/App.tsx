@@ -3,7 +3,7 @@ import { useDownloadOrchestrator } from './hooks/useDownloadOrchestrator';
 import { DownloadOverlay } from './components/DownloadOverlay';
 import { HistoryPanel } from './components/HistoryPanel';
 import { SettingsPanel } from './components/SettingsPanel';
-import { getAllEntries, markStaleInProgressAsFailed, deleteEntry } from './lib/indexeddb';
+import { getAllEntries, markStaleInProgressAsFailed, deleteEntry, getEntry } from './lib/indexeddb';
 import type { Company, HistoryEntry } from './types';
 import './index.css';
 
@@ -47,8 +47,8 @@ export default function App() {
     void deleteEntry(entry.companyId).then(refreshHistory);
   }
 
-  function handleResumeFromOverlay() {
-    const entry = historyEntries.find(e => e.companyId === state.companyId);
+  async function handleResumeFromOverlay() {
+    const entry = await getEntry(state.companyId);
     if (entry) void resumeDownload(entry);
   }
 

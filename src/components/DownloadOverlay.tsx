@@ -1,5 +1,6 @@
 import type { CompletedPart } from '../types';
 import { triggerDownload } from '../lib/csv';
+import { config } from '../lib/config';
 
 interface Props {
   status: 'downloading' | 'failed' | 'completed';
@@ -25,7 +26,7 @@ export function DownloadOverlay({ status, companyName, recordsProcessed, current
             <h2 className="overlay-title">Downloading…</h2>
             <p className="overlay-company">{companyName}</p>
             <div className="progress-bar-track">
-              <div className="progress-bar-fill" style={{ width: `${Math.min((recordsProcessed % 100) + 1, 100)}%` }} />
+              <div className="progress-bar-fill" style={{ width: `${Math.min((recordsProcessed % config.partThreshold) / config.partThreshold * 100, 100)}%` }} />
             </div>
             <p className="overlay-stat">
               <strong>{recordsProcessed.toLocaleString()}</strong> records processed
