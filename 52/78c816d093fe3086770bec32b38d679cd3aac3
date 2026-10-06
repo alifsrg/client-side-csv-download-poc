@@ -1,0 +1,25 @@
+docs/agents/domain.md
+  s_d300d387c70b71::t_f747f11dd47784 1-51
+CLAUDE.md
+  s_d300d387c70b71::t_f747f11dd47784 1-13
+docs/agents/issue-tracker.md
+  s_d300d387c70b71::t_f747f11dd47784 1-45
+docs/agents/triage-labels.md
+  s_d300d387c70b71::t_f747f11dd47784 1-15
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.11",
+  "base_commit_sha": "5278c816d093fe3086770bec32b38d679cd3aac3",
+  "prompts": {},
+  "sessions": {
+    "s_d300d387c70b71": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "52d722a3-be7f-454c-99f0-5d87e43336b9",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Alif Siregar <fauzan.alif@tiket.com>"
+    }
+  }
+}
